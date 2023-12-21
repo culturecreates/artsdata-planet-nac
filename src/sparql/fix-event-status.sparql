@@ -1,0 +1,9 @@
+delete {
+   ?s ?p "https://schema.org/EventScheduled"
+}
+insert {
+   ?s ?p <http://schema.org/EventScheduled>
+}
+where {
+  ?s ?p "https://schema.org/EventScheduled"
+}

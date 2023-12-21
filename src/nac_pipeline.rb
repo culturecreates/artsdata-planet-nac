@@ -13,6 +13,7 @@ pipeline.transform("./sparql/fix-end-dates.sparql")
 pipeline.transform("./sparql/make-uris.sparql")
 pipeline.transform("./sparql/set-organizer.sparql")
 pipeline.transform("./sparql/fix-places.sparql")
+pipeline.transform("./sparql/fix-event-status.sparql")
 
 pipeline.dump("../output/transformed-#{graph.split("/").last}.json")
 

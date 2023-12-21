@@ -29,7 +29,7 @@ where {
   }
 
   OPTIONAL {
-    ?place  schema:name "Studio Azrieli" .
+    ?place  schema:name "Azrieli Studio" .
     bind(adr:K11-15 as ?artsdata_place)
   }
 
