@@ -13,12 +13,12 @@ jobs:
           curl \
           -H 'Content-Type: application/json' \
           -X POST http://api.artsdata.ca/databus/  \
-          --data '{ "artifact": "events",
+          --data '{ "artifact": "nac-events",
                     "comment": "NAC Events",
                     "publisher": "${{ secrets.PUBLISHER_URI_GREGORY }}",
                     "group": "${{ github.event.repository.name }}",
                     "version": "${{ steps.version.outputs.dumpdate }}",
-                    "downloadUrl": "",
-                    "downloadFile": "events.jsonld",
+                    "downloadUrl": "https://raw.githubusercontent.com/culturecreates/artsdata-planet-nac/main/output/nac-events.json",
+                    "downloadFile": "nac-events.jsonld",
                     "reportCallbackUrl": "https://huginn-staging.herokuapp.com/users/1/web_requests/273/databus"
                   }'    
