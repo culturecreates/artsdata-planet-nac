@@ -1,0 +1,17 @@
+PREFIX schema: <http://schema.org/>
+delete {
+        ?s  ?a ?b .
+}
+insert {
+        ?uri  ?a ?b .
+}
+
+where {
+        ?s a schema:Event ;
+           schema:startDate ?startDate ;
+           schema:url ?url ;
+           ?a ?b .
+        bind(URI(concat(str(?url),"#",str(?startDate))) as ?uri)
+        filter(isblank(?s))
+}
+

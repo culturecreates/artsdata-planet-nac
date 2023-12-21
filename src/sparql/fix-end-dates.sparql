@@ -1,0 +1,23 @@
+PREFIX schema: <http://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+delete  {
+        ?event schema:endDate ?date .
+}
+insert  {
+        ?event schema:endDate ?date_fix .
+}
+where {
+        ?event a schema:Event ;
+               schema:endDate ?date .
+   
+    filter(datatype(?date) != xsd:dateTime )
+    BIND(strbefore(str(?date),"T") as ?date_str)
+    BIND(strafter(str(?date),"T") as ?time_str)
+    BIND(strafter(str(?time_str),"-") as ?zone_str)
+    BIND(concat(substr(?zone_str, 1, 2),":",substr(?zone_str, 3, 2)) as ?zone_fix)
+    BIND(strdt(concat(?date_str,"T",strbefore(?time_str,"-"),":00-",?zone_fix), xsd:dateTime) as ?date_fix)
+}
+
+# This SPARQL converts raw dates missing seconds and time zone colon
+# From 2023-01-01T11:99-0400 to 2023-01-01T11:99:55-04:00

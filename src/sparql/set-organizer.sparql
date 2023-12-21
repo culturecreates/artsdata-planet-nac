@@ -1,0 +1,17 @@
+PREFIX schema: <http://schema.org/>  
+PREFIX adr: <http://kg.artsdata.ca/resource/>  
+
+insert {
+        ?e schema:organizer adr:K14-29  
+} 
+where {
+        ?e a schema:Event ;
+           schema:startDate ?start ;
+           schema:name ?name ;
+           schema:url ?url ;
+           schema:workPerformed ?workPerformed .
+           ?workPerformed schema:keywords ?keywords .
+        filter(!contains(lcase(?keywords),"visual art")&& !contains(lcase(?keywords),"workshop") ) 
+}
+
+# This SPARQL sets all events from the National Arts Centre nac-cna.ca website to be organized by the NAC
