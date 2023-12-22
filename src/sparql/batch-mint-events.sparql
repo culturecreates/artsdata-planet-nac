@@ -1,0 +1,29 @@
+# [endpoint=http://kg.artsdata.ca/query]
+PREFIX schema: <http://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+construct {
+    ?s a schema:Event .
+}  
+where {
+    values ?g {
+        <http://kg.artsdata.ca/culture-creates/artsdata-planet-nac/nac-events>
+    }
+    graph  ?g {
+        ?s a schema:Event .
+    }
+    ?s a schema:Event ;
+       schema:startDate ?startDate ;
+       schema:name ?name  ;
+       schema:location/schema:sameAs/schema:address/schema:postalCode ?code ;
+                                                   schema:location/schema:name ?location_name .
+    OPTIONAL {
+        ?s   schema:endDate ?endDate 
+    }
+    bind(strdt(substr(str(?startDate),1,10),xsd:date) as ?date )
+    filter (?startDate  > now() || ?endDate > now() )
+    filter not exists {
+        ?focusNode sh:focusNode ?s .
+    }
+} order by ?s
