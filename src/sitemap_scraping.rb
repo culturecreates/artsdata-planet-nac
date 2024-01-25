@@ -34,8 +34,7 @@ entity_urls.each do |entity_url|
 end
 
 sparql_paths = [
-  "./src/sparql/fix-start-dates.sparql",
-  "./src/sparql/fix-end-dates.sparql",
+  "./src/sparql/fix-date.sparql",
   "./src/sparql/fix-event-status.sparql",
   "./src/sparql/fix-places.sparql",
   "./src/sparql/make-uris.sparql",

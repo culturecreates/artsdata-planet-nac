@@ -36,7 +36,7 @@ jobs:
     needs: fetch-and-commit-data
     uses: culturecreates/artsdata-orion/.github/workflows/push-entities-to-artsdata.yml@main
     with:
-      artifact_name: nac-ca
+      artifact_name: nac-events
       entity_url: http://nac-cna.ca
       download_url: https://raw.githubusercontent.com/culturecreates/artsdata-planet-nac/main/output/entities.jsonld
       download_file: entities.jsonld
