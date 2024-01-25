@@ -1,4 +1,4 @@
-name: Fetch Ipaa Artists
+name: Fetch NAC entities
 
 on:
   workflow_dispatch:
