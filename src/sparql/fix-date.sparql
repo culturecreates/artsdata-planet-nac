@@ -1,0 +1,17 @@
+  PREFIX schema: <http://schema.org/>
+  DELETE {
+      ?s ?p ?old_date .
+  }
+  INSERT {
+      ?s ?p ?fixed_date .
+  }
+  WHERE {
+    ?s ?p ?old_date.
+    FILTER (datatype(?old_date) = schema:Date)
+    BIND(strbefore(str(?old_date),"T") as ?date_str)
+    BIND(strbefore(strafter(str(?old_date), "T"), "-") AS ?time_str)
+    BIND(strafter(strafter(str(?old_date), "T"), "-") AS ?zone_str)
+    FILTER (SUBSTR(str(?zone_str), 3, 1) != ':')
+    BIND(CONCAT(SUBSTR(str(?zone_str), 1, 2), ":", SUBSTR(str(?zone_str), 3, 2)) as ?zone_fix)
+    BIND(concat(?date_str, "T", ?time_str, "-", ?zone_fix) as ?fixed_date)
+  } 
