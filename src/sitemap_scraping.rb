@@ -29,7 +29,7 @@ entity_urls.each do |entity_url|
     graph << RDF::Graph.load(entity_url)
   rescue StandardError => e
     puts "Error loading RDF from #{entity_url}: #{e.message}"
-    break
+    # break
   end
 end
 
