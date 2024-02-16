@@ -15,6 +15,7 @@ graph = RDF::Graph.new
 def perform_sparql_transformations(graph, sparql_paths)
   sparql_paths.each do |sparql_path|
     graph.query(SPARQL.parse(File.read(sparql_path), update: true))
+    puts "Performed SPARQL transformation from #{sparql_path}"
   end
   return graph
 end
@@ -23,7 +24,8 @@ sitemap_xml = Nokogiri::XML(URI.open(sitemap_url))
 # Extract URLs that start with 'https://nac-cna.ca/en/event/'
 ns = { 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' }
 entity_urls = sitemap_xml.xpath('//xmlns:url[starts-with(xmlns:loc, "https://nac-cna.ca/en/event/")]/xmlns:loc', ns).map(&:text)
-entity_urls.each do |entity_url|
+puts "entity_urls: #{entity_urls}"
+entity_urls[1..25].each do |entity_url|
   begin
     entity_url = entity_url.gsub(' ', '+')
     graph << RDF::Graph.load(entity_url)
