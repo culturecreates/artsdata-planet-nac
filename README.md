@@ -1,9 +1,7 @@
 # artsdasta-planet-nac
 National Arts Centre in Ottawa - pipeline to extract JSON-LD from nac-cna.ca into Artsdata
 
-
-http://footlight-wringer.herokuapp.com/websites/get_rdf.jsonld?uri=http://nac-cna.ca
-
+View latest events crawled in Artsdata [here](https://artsdata-nebula-d1ec887e2637.herokuapp.com/query/show?title=Event%20entities%20in%20nac-events%20%284156%20triples%29&sparql=list_events&graph=http://kg.artsdata.ca/culture-creates/artsdata-planet-nac/nac-events)
 
 
 Doc to transfer to Issues here
