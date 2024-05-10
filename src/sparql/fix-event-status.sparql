@@ -1,9 +1,11 @@
 delete {
-   ?s ?p "https://schema.org/EventScheduled"
+   ?s schema:eventStatus ?eventStatus .
 }
 insert {
    ?s ?p <http://schema.org/EventScheduled>
 }
 where {
-  ?s ?p "https://schema.org/EventScheduled"
+  ?s schema:eventStatus ?eventStatus .
+  filter (strends(?eventStatus, "EventScheduled")) .
+ 
 }
