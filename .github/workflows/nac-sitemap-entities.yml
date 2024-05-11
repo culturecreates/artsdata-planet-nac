@@ -3,7 +3,7 @@ name: Fetch NAC entities
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 1 */6 *'
+    - cron: '0 4 * * 2'
       
 jobs:
   fetch-and-commit-data:
