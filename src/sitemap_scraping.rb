@@ -25,10 +25,15 @@ sitemap_xml = Nokogiri::XML(URI.open(sitemap_url))
 ns = { 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' }
 entity_urls = sitemap_xml.xpath('//xmlns:url[starts-with(xmlns:loc, "https://nac-cna.ca/en/event/")]/xmlns:loc', ns).map(&:text)
 puts "entity_urls: #{entity_urls}"
+
+sparql_file = File.read('./sparql/add_derived_from.sparql')
 entity_urls.each do |entity_url|
   begin
     entity_url = entity_url.gsub(' ', '+')
-    graph << RDF::Graph.load(entity_url)
+    loaded_graph = RDF::Graph.load(entity_url)
+    sparql_file_with_url = sparql_file.gsub("subject_url", entity_url)
+    loaded_graph.query(SPARQL.parse(sparql_file_with_url, update: true))
+    graph << loaded_graph
   rescue StandardError => e
     puts "Error loading RDF from #{entity_url}: #{e.message}"
     # break
@@ -36,11 +41,7 @@ entity_urls.each do |entity_url|
 end
 
 sparql_paths = [
- # "./src/sparql/fix-date.sparql",
- # "./src/sparql/fix-start-dates.sparql",
- # "./src/sparql/fix-end-dates.sparql",
   "./src/sparql/fix-event-status.sparql",
- # "./src/sparql/fix-places.sparql",
   "./src/sparql/make-uris.sparql",
   "./src/sparql/remove-blank-descriptions.sparql",
   "./src/sparql/set-organizer.sparql"

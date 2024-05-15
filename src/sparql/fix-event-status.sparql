@@ -2,7 +2,7 @@ delete {
    ?s schema:eventStatus ?eventStatus .
 }
 insert {
-   ?s ?p <http://schema.org/EventScheduled>
+   ?s schema:eventStatus <http://schema.org/EventScheduled>
 }
 where {
   ?s schema:eventStatus ?eventStatus .

@@ -1,0 +1,16 @@
+PREFIX schema: <http://schema.org/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+INSERT {
+  ?top_node prov:wasDerivedFrom <subject_url> .
+}
+WHERE {
+  {
+    SELECT DISTINCT ?top_node
+    WHERE {
+      ?top_node ?any_p ?any_o .
+      FILTER NOT EXISTS { ?other_s ?other_p ?top_node }
+    }
+  }
+  ?top_node ?p ?o
+}
