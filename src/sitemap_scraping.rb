@@ -42,9 +42,7 @@ entity_urls.each do |entity_url|
 end
 
 sparql_paths = [
-  "./src/sparql/fix-event-status.sparql",
   "./src/sparql/make-uris.sparql",
-  "./src/sparql/remove-blank-descriptions.sparql",
   "./src/sparql/set-organizer.sparql"
 ]
 graph = perform_sparql_transformations(graph, sparql_paths)
