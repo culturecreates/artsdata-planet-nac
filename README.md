@@ -6,3 +6,6 @@ View latest events crawled in Artsdata [here](https://kg.artsdata.ca/query/show?
 
 Doc to transfer to Issues here
 https://docs.google.com/document/d/1MOIVVBOJbu0OYKHBZcjLga6grpnOXdByDHb2329G6TQ/edit#heading=h.ui3nlb763v2b
+
+
+Note: The Ruby code will run in a Github runner on Linux: To support Linux run `bundle lock --add-platform x86_64-linux`
