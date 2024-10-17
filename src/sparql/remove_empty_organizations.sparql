@@ -1,0 +1,15 @@
+PREFIX schema: <http://schema.org/>
+
+DELETE {
+  ?organizer ?p ?o.
+} WHERE {
+  ?event a schema:Event.
+  
+  ?event schema:organizer ?organizer.
+  
+  OPTIONAL {
+    ?organizer schema:name "".
+  }
+  
+  FILTER(!BOUND(?name))
+}

@@ -43,7 +43,8 @@ end
 
 sparql_paths = [
   "./src/sparql/make-uris.sparql",
-  "./src/sparql/set-organizer.sparql"
+  "./src/sparql/set-organizer.sparql",
+  "./src/sparql/remove_empty_organizations.sparql",
 ]
 graph = perform_sparql_transformations(graph, sparql_paths)
 
