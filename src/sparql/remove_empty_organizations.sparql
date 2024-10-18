@@ -1,15 +1,22 @@
 PREFIX schema: <http://schema.org/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
 
 DELETE {
-  ?organizer ?p ?o.
-} WHERE {
-  ?event a schema:Event.
-  
-  ?event schema:organizer ?organizer.
-  
-  OPTIONAL {
-    ?organizer schema:name "".
+  ?s ?p ?o .
+  ?s <schema:organizer> ?o .
+}
+WHERE {
+  {
+    ?s ?p ?o .
+    ?s a schema:Organization .
+    ?s schema:name "" .
   }
-  
-  FILTER(!BOUND(?name))
+  UNION
+  {
+    ?s ?p ?o .
+    ?o a schema:Organization .
+    FILTER NOT EXISTS {
+      ?p schema:name "" .
+    }
+  }
 }

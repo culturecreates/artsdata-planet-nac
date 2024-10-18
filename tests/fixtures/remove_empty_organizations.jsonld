@@ -1,0 +1,84 @@
+[
+  {
+    "@id": "_:g601260",
+    "@type": [
+      "http://schema.org/Organization"
+    ],
+    "http://schema.org/name": [
+      {
+        "@value": ""
+      }
+    ],
+    "http://schema.org/url": [
+      {
+        "@value": "https://nac-cna.ca/en/"
+      }
+    ]
+  },
+  {
+    "@id": "https://nac-cna.ca/en/event/37095#2024-07-31T00:00:00-04:00",
+    "@type": [
+      "http://schema.org/Event"
+    ],
+    "http://schema.org/startDate": [
+      {
+        "@value": "2024-07-31T00:00:00-04:00"
+      }
+    ],
+    "http://schema.org/endDate": [
+      {
+        "@value": "2024-07-31T24:00:00-04:00"
+      }
+    ],
+    "http://schema.org/name": [
+      {
+        "@language": "en",
+        "@value": "MY&Uuml;Z"
+      }
+    ],
+    "http://schema.org/description": [
+      {
+        "@language": "en",
+        "@value": ""
+      }
+    ],
+    "http://schema.org/url": [
+      {
+        "@value": "https://nac-cna.ca/en/event/37095"
+      }
+    ],
+    "http://schema.org/image": [
+      {
+        "@value": "https://naccnaca-eventimages.s3.amazonaws.com/37095/myuz_nac_horizontal_web-02__large.png"
+      }
+    ],
+    "http://schema.org/organizer": [
+      {
+        "@id": "_:g601260"
+      },
+      {
+        "@id": "http://kg.artsdata.ca/resource/K14-29"
+      }
+    ],
+    "http://schema.org/workPerformed": [
+      {
+        "@id": "https://nac-cna.ca/en/event/37095#CreativeWork"
+      }
+    ],
+    "http://schema.org/location": [
+      {
+        "@id": "https://nac-cna.ca/venue/studio#Place"
+      }
+    ],
+    "http://schema.org/offers": [
+      {
+        "@id": "_:g601280"
+      }
+    ],
+    "http://www.w3.org/ns/prov#wasDerivedFrom": [
+      {
+        "@id": "https://nac-cna.ca/en/event/37095"
+      }
+    ]
+  }
+]
