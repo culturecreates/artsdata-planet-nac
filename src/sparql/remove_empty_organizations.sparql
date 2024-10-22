@@ -3,7 +3,6 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
 
 DELETE {
   ?s ?p ?o .
-  ?s <schema:organizer> ?o .
 }
 WHERE {
   {
@@ -15,8 +14,6 @@ WHERE {
   {
     ?s ?p ?o .
     ?o a schema:Organization .
-    FILTER NOT EXISTS {
-      ?p schema:name "" .
-    }
+    ?o schema:name "" .
   }
 }

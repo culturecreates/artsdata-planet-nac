@@ -14,6 +14,7 @@ class ReplaceBlankNodesTest < Minitest::Test
     # puts "before: #{graph.dump(:jsonld)}"
     graph.query(sparql)
     # puts "after: #{graph.dump(:jsonld)}"
-    assert_equal 0, graph.query([nil, RDF::URI("http://schema.org/name"), ""]).count
+    assert_equal 1, graph.query([RDF::URI("https://nac-cna.ca/en/event/has_organization"), RDF::URI("http://schema.org/organizer"), nil]).count
+    assert_equal 0, graph.query([RDF::URI("https://nac-cna.ca/en/event/no_organization"), RDF::URI("http://schema.org/organizer"), nil]).count
   end
 end

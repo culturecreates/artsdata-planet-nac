@@ -16,7 +16,7 @@
     ]
   },
   {
-    "@id": "https://nac-cna.ca/en/event/37095#2024-07-31T00:00:00-04:00",
+    "@id": "https://nac-cna.ca/en/event/no_organization",
     "@type": [
       "http://schema.org/Event"
     ],
@@ -33,51 +33,55 @@
     "http://schema.org/name": [
       {
         "@language": "en",
-        "@value": "MY&Uuml;Z"
-      }
-    ],
-    "http://schema.org/description": [
-      {
-        "@language": "en",
-        "@value": ""
-      }
-    ],
-    "http://schema.org/url": [
-      {
-        "@value": "https://nac-cna.ca/en/event/37095"
-      }
-    ],
-    "http://schema.org/image": [
-      {
-        "@value": "https://naccnaca-eventimages.s3.amazonaws.com/37095/myuz_nac_horizontal_web-02__large.png"
+        "@value": "Event without organization name"
       }
     ],
     "http://schema.org/organizer": [
       {
         "@id": "_:g601260"
-      },
+      }
+    ]
+  },
+  {
+    "@id": "_:g601261",
+    "@type": [
+      "http://schema.org/Organization"
+    ],
+    "http://schema.org/name": [
       {
-        "@id": "http://kg.artsdata.ca/resource/K14-29"
+        "@value": "National Gallery of Canada"
       }
     ],
-    "http://schema.org/workPerformed": [
+    "http://schema.org/url": [
       {
-        "@id": "https://nac-cna.ca/en/event/37095#CreativeWork"
+        "@value": "https://www.gallery.ca/en/"
+      }
+    ]
+  },
+  {
+    "@id": "https://nac-cna.ca/en/event/has_organization",
+    "@type": [
+      "http://schema.org/Event"
+    ],
+    "http://schema.org/startDate": [
+      {
+        "@value": "2024-09-15T10:00:00-04:00"
       }
     ],
-    "http://schema.org/location": [
+    "http://schema.org/endDate": [
       {
-        "@id": "https://nac-cna.ca/venue/studio#Place"
+        "@value": "2024-09-15T18:00:00-04:00"
       }
     ],
-    "http://schema.org/offers": [
+    "http://schema.org/name": [
       {
-        "@id": "_:g601280"
+        "@language": "en",
+        "@value": "Event with organization name"
       }
     ],
-    "http://www.w3.org/ns/prov#wasDerivedFrom": [
+    "http://schema.org/organizer": [
       {
-        "@id": "https://nac-cna.ca/en/event/37095"
+        "@id": "_:g601261"
       }
     ]
   }
