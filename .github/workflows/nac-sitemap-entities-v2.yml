@@ -1,0 +1,19 @@
+name: Fetch NAC entities - v2
+
+on:
+  workflow_dispatch:
+      
+jobs:
+  artsdata-fetch-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Action setup
+        uses: culturecreates/artsdata-pipeline-action@v3
+        with:
+          mode: "fetch-push"
+          artifact: "nac-xpath-test"
+          publisher: "${{ secrets.PUBLISHER_URI_GREGORY }}"
+          downloadFile: "output/entities-v2.jsonld"
+          page-url: "https://nac-cna.ca/en/site/sitemap-ssl"
+          entity-identifier: "//loc[starts-with(text(), 'https://nac-cna.ca/en/event/')]"
+          token: "${{ secrets.GITHUB_TOKEN }}"
