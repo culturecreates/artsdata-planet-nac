@@ -17,3 +17,4 @@ jobs:
           page-url: "https://nac-cna.ca/en/site/sitemap-ssl"
           entity-identifier: "//loc[starts-with(text(), 'https://nac-cna.ca/en/event/')]"
           token: "${{ secrets.GITHUB_TOKEN }}"
+          cloudflare-private-key: "${{ secrets.CLOUDFLARE_PRIVATE_KEY }}"
