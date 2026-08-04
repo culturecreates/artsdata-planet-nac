@@ -15,6 +15,6 @@ jobs:
           publisher: "${{ secrets.PUBLISHER_URI_GREGORY }}"
           downloadFile: "output/entities-v2.jsonld"
           page-url: "https://nac-cna.ca/site/sitemap-ssl"
-          entity-identifier: "//loc[contains(text(), '/event/')"
+          entity-identifier: "//*[local-name()='loc' and contains(., '/event/')]"
           token: "${{ secrets.GITHUB_TOKEN }}"
           cloudflare-private-key: "${{ secrets.CLOUDFLARE_PRIVATE_KEY }}"
