@@ -10,7 +10,7 @@ jobs:
       - name: Action setup
         uses: culturecreates/artsdata-pipeline-action@v4
         with:
-          mode: "fetch-test"
+          mode: "fetch"
           artifact: "nac-xpath-test"
           publisher: "${{ secrets.PUBLISHER_URI_GREGORY }}"
           downloadFile: "output/entities-v2.jsonld"
