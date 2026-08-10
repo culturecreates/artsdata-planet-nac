@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
@@ -46,7 +46,7 @@ jobs:
     needs: fetch-and-commit-data
     steps:
       - name: Action setup
-        uses: culturecreates/artsdata-pipeline-action@v1.1.0
+        uses: culturecreates/artsdata-pipeline-action@v4
         with:
           artifact: nac-events
           publisher: "${{ secrets.PUBLISHER_URI_GREGORY }}"
