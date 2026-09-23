@@ -22,9 +22,9 @@ end
 
 puts "Checking sitemap at #{sitemap_url}"
 sitemap_xml = Nokogiri::XML(URI.open(sitemap_url))
-# Extract URLs that start with 'https://nac-cna.ca/en/event/'
+# Extract URLs for both English and French event pages
 ns = { 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' }
-entity_urls = sitemap_xml.xpath('//xmlns:url[starts-with(xmlns:loc, "https://nac-cna.ca/en/event/")]/xmlns:loc', ns).map(&:text)
+entity_urls = sitemap_xml.xpath('//xmlns:url[contains(xmlns:loc, "://nac-cna.ca/en/event/") or contains(xmlns:loc, "://nac-cna.ca/fr/event/")]/xmlns:loc', ns).map(&:text)
 puts "entity_urls: #{entity_urls}"
 
 sparql_file = File.read('./src/sparql/add_derived_from.sparql')
