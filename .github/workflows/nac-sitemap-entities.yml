@@ -23,7 +23,7 @@ jobs:
     - name: Run Main Script
       run: |
           bundle exec ruby src/sitemap_scraping.rb \
-          https://nac-cna.ca/en/site/sitemap-ssl \
+          https://nac-cna.ca/site/sitemap-ssl \
           output/entities.jsonld 
 
     - name: Commit and Push Changes
