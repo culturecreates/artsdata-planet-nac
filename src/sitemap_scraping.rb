@@ -20,12 +20,62 @@ def perform_sparql_transformations(graph, sparql_paths)
   return graph
 end
 
-puts "Checking sitemap at #{sitemap_url}"
-sitemap_xml = Nokogiri::XML(URI.open(sitemap_url))
-# Extract URLs for both English and French event pages
-ns = { 'xmlns' => 'http://www.sitemaps.org/schemas/sitemap/0.9' }
-entity_urls = sitemap_xml.xpath('//xmlns:url[contains(xmlns:loc, "://nac-cna.ca/en/event/") or contains(xmlns:loc, "://nac-cna.ca/fr/event/")]/xmlns:loc', ns).map(&:text)
-puts "entity_urls: #{entity_urls}"
+# --- Index (listing) based discovery -----------------------------------------
+# robots.txt only exposes an English sitemap with no French events, so instead
+# we crawl the language-specific event listing pages and derive counterparts.
+
+EVENT_PATH_REGEX = %r{https?://nac-cna\.ca/(en|fr)/event/[^"'#?\s]+}
+
+# Listing pages per language. Pagination is followed via ?page=N until a page
+# yields no new event links (or the max page cap is reached).
+INDEX_PAGES = [
+  "https://nac-cna.ca/en/discover",
+  "https://nac-cna.ca/fr/discover"
+]
+
+def scrape_index_page(url)
+  html = Nokogiri::HTML(URI.open(url))
+  links = html.css('a[href]').map { |a| a['href'] }
+  # Normalize relative hrefs to absolute
+  links.map! do |href|
+    href.start_with?('http') ? href : "https://nac-cna.ca#{href}"
+  end
+  links.grep(EVENT_PATH_REGEX)
+rescue StandardError => e
+  puts "Error scraping index #{url}: #{e.message}"
+  []
+end
+
+def collect_event_urls(index_pages, max_pages: 50)
+  found = []
+  index_pages.each do |base|
+    (1..max_pages).each do |page|
+      page_url = page == 1 ? base : "#{base}?page=#{page}"
+      puts "Checking index page #{page_url}"
+      urls = scrape_index_page(page_url)
+      new_urls = urls - found
+      break if new_urls.empty?
+      found.concat(new_urls)
+    end
+  end
+  found.uniq
+end
+
+def derive_counterpart_urls(urls)
+  urls.flat_map do |u|
+    [u, u.sub('/en/event/', '/fr/event/').sub('/fr/event/', '/en/event/')]
+  end
+end
+
+# Build the full en/fr event list.
+entity_urls = collect_event_urls(INDEX_PAGES)
+
+# Ensure both language versions exist for every discovered event id.
+entity_urls = entity_urls
+  .flat_map { |u| [u.sub('/fr/event/', '/en/event/'), u.sub('/en/event/', '/fr/event/')] }
+  .uniq
+
+puts "entity_urls (#{entity_urls.size}): #{entity_urls}"
 
 sparql_file = File.read('./src/sparql/add_derived_from.sparql')
 entity_urls.each do |entity_url|
