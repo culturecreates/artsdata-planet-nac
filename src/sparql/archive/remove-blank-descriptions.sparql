@@ -1,8 +1,0 @@
-PREFIX schema: <http://schema.org/>
-delete {
-    ?s schema:description ?description .
-}
-where { 
-	?s schema:description ?description .
-  filter(str(?description) = "")
-} 
