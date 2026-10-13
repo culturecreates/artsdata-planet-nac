@@ -11116,19 +11116,19 @@
     "http://ogp.me/ns#title": [
       {
         "@language": "en-ca",
-        "@value": "Toni Morrison Songs & Mendelssohn’s “Scottish” Symphony | feat. Vuvu Mpofu, Roderick Cox, and the NAC Orchestra | Oct 14 - 15, 2026 | Southam Hall"
+        "@value": "Toni Morrison Songs & Mendelssohn’s “Scottish” Symphony | feat. Jacqueline Echols, Roderick Cox, and the NAC Orchestra | Oct 14 - 15, 2026 | Southam Hall"
       }
     ],
     "http://ogp.me/ns#image": [
       {
         "@language": "en-ca",
-        "@value": "https://naccnaca-eventimages.s3.amazonaws.com/40396/metaadtemplate_1_(8)__large.png"
+        "@value": "https://naccnaca-eventimages.s3.amazonaws.com/40396/metaadtemplate_1__large.png"
       }
     ],
     "http://ogp.me/ns#description": [
       {
         "@language": "en-ca",
-        "@value": "Jazz, spirituals, poetry, misty landscapes, and gathering storms take you through three musical universes\n\nA few things to know ...\n\n\n\tHoney and rue, mist and storms: this program moves between vivid musical worlds, from Toni Morrison’s poetry and André Previn’s blend of jazz and spirituals to the wild landscapes of Mendelssohn’s Scotland.\n\tSouth African soprano Vuvu Mpofu joins conductor Roderick Cox for Previn’s Honey and Rue, six settings of poems by Nobel Prize winner Toni Morrison exploring loneliness, love, sacrifice, and the experience..."
+        "@value": "PROGRAM UPDATE\n\nDue to unforeseen circumstances, soprano Vuvu Mpofu will no longer be performing in this concert. We are pleased to welcome soprano Jacqueline Echols, who will perform Honey and Rue\n\n - - - - -\n\nJazz, spirituals, poetry, misty landscapes, and gathering storms take you through three musical universes\n\nA few things to know ...\n\n\n\tHoney and rue, mist and storms: this program moves between vivid musical worlds, from Toni Morrison’s poetry and André Previn’s blend of jazz and spirituals to the wild landscapes..."
       }
     ],
     "http://ogp.me/ns/fb#admins": [
@@ -11196,7 +11196,7 @@
     ],
     "http://schema.org/image": [
       {
-        "@id": "https://naccnaca-eventimages.s3.amazonaws.com/40396/metaadtemplate_1_(8)__large.png"
+        "@id": "https://naccnaca-eventimages.s3.amazonaws.com/40396/metaadtemplate_1__large.png"
       }
     ],
     "http://schema.org/organizer": [
@@ -11254,11 +11254,11 @@
     "http://schema.org/name": [
       {
         "@language": "en",
-        "@value": "Toni Morrison Songs & Mendelssohn’s “Scottish” Symphony feat. Vuvu Mpofu, Roderick Cox, and the NAC Orchestra"
+        "@value": "Toni Morrison Songs & Mendelssohn’s “Scottish” Symphony feat. Jacqueline Echols, Roderick Cox, and the NAC Orchestra"
       },
       {
         "@language": "fr",
-        "@value": "Toni Morrison en musique et la Symphonie « Écossaise » de Mendelssohn avec Vuvu Mpofu, Roderick Cox et l’Orchestre du CNA"
+        "@value": "Toni Morrison en musique et la Symphonie « Écossaise » de Mendelssohn avec Jacqueline Echols, Roderick Cox et l’Orchestre du CNA"
       }
     ],
     "http://schema.org/description": [
@@ -11444,7 +11444,7 @@
     ],
     "http://schema.org/image": [
       {
-        "@id": "https://naccnaca-eventimages.s3.amazonaws.com/40396/metaadtemplate_1_(8)__large.png"
+        "@id": "https://naccnaca-eventimages.s3.amazonaws.com/40396/metaadtemplate_1__large.png"
       }
     ],
     "http://schema.org/organizer": [
@@ -11502,11 +11502,11 @@
     "http://schema.org/name": [
       {
         "@language": "en",
-        "@value": "Toni Morrison Songs & Mendelssohn’s “Scottish” Symphony feat. Vuvu Mpofu, Roderick Cox, and the NAC Orchestra"
+        "@value": "Toni Morrison Songs & Mendelssohn’s “Scottish” Symphony feat. Jacqueline Echols, Roderick Cox, and the NAC Orchestra"
       },
       {
         "@language": "fr",
-        "@value": "Toni Morrison en musique et la Symphonie « Écossaise » de Mendelssohn avec Vuvu Mpofu, Roderick Cox et l’Orchestre du CNA"
+        "@value": "Toni Morrison en musique et la Symphonie « Écossaise » de Mendelssohn avec Jacqueline Echols, Roderick Cox et l’Orchestre du CNA"
       }
     ],
     "http://schema.org/description": [
@@ -64285,19 +64285,19 @@
     "http://ogp.me/ns#title": [
       {
         "@language": "fr-ca",
-        "@value": "Toni Morrison en musique et la Symphonie « Écossaise » de Mendelssohn  | avec Vuvu Mpofu, Roderick Cox et l’Orchestre du CNA |  14-15 oct 2026|  Salle Southam"
+        "@value": "Toni Morrison en musique et la Symphonie « Écossaise » de Mendelssohn  | avec Jacqueline Echols, Roderick Cox et l’Orchestre du CNA |  14-15 oct 2026|  Salle Southam"
       }
     ],
     "http://ogp.me/ns#image": [
       {
         "@language": "fr-ca",
-        "@value": "https://naccnaca-eventimages.s3.amazonaws.com/40396/metaadtemplate_1_(8)__large.png"
+        "@value": "https://naccnaca-eventimages.s3.amazonaws.com/40396/metaadtemplate_1__large.png"
       }
     ],
     "http://ogp.me/ns#description": [
       {
         "@language": "fr-ca",
-        "@value": "Jazz, spirituals, poésie, paysages embrumés et tempêtes se rencontrent dans un programme qui nous transporte entre trois univers musicaux profondément différents.\n\nQuelques infos clés...\n\n\n\tDouceur et amertume, brume et tempêtes : ce programme nous fait traverser des univers saisissants, de la poésie de Toni Morrison, portée par le jazz et les spirituals d’André Previn, jusqu’aux paysages sauvages de l’Écosse de Mendelssohn.\n\tLa soprano sud-africaine Vuvu Mpofu se joint au chef Roderick Cox pour Honey and Rue de Prévin, six poèmes de la lauréate..."
+        "@value": "MISE À JOUR DU PROGRAMME\n\nEn raison de circonstances imprévues, la soprano Vuvu Mpofu ne pourra pas se produire lors de ce concert. Nous sommes heureux d’accueillir la soprano Jacqueline Echols, qui la remplacera pour interpréter Honey and Rue.\n\n - - - - -\n\nJazz, spirituals, poésie, paysages embrumés et tempêtes se rencontrent dans un programme qui nous transporte entre trois univers musicaux profondément différents.\n\nQuelques infos clés...\n\n\n\tDouceur et amertume, brume et tempêtes : ce programme nous fait traverser des univers saisissants, de la..."
       }
     ],
     "http://ogp.me/ns/fb#admins": [
