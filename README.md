@@ -8,13 +8,14 @@ View latest events crawled in Artsdata [here](https://kg.artsdata.ca/query/show?
 
 ## How it works
 
-This planet uses [artsdata-pipeline-action](https://github.com/culturecreates/artsdata-pipeline-action) in `fetch-push` mode. The workflow `.github/workflows/nac-events.yml` runs weekly (Tuesday 04:00 UTC) and on manual dispatch:
+This planet uses [artsdata-pipeline-action](https://github.com/culturecreates/artsdata-pipeline-action) in `fetch-push` mode. The workflow `.github/workflows/nac-sitemap-entities.yml` runs weekly (Tuesday 04:00 UTC) and on manual dispatch:
 
-1. Crawls the NAC sitemap (`https://nac-cna.ca/site/sitemap-ssl`) and extracts event pages matching `/en/event/` and `/fr/event/`
-2. Saves the result to `output/nac-events.jsonld` in this repo
-3. Pushes it to the Artsdata Databus as artifact `nac-events`
+1. Reads the English sitemap (`https://nac-cna.ca/en/site/sitemap-ssl`) for `/en/event/{id}` URLs and the French sitemap (`https://nac-cna.ca/fr/site/sitemap-ssl`) for `/fr/event/{id}` URLs
+2. Fetches every event page in both languages (`urls-are-entities: "true"`)
+3. Saves the result to `output/nac-events.jsonld` in this repo
+4. Pushes it to the Artsdata Databus as artifact `nac-events`
 
-There is no custom scraping code in this repo. To change crawl behaviour, edit the action inputs in the workflow. To test changes without saving or pushing, run the workflow with `mode: fetch-test` (max 5 URLs).
+Apart from the small shell step that builds the en/fr URL list from the sitemaps, there is no custom scraping code in this repo. To change crawl behaviour, edit that step or the action inputs in the workflow. To test changes without saving or pushing, run the workflow with `mode: fetch-test` (max 5 URLs).
 
 ## Secrets
 
