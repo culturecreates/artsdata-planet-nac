@@ -12,26 +12,6 @@ jobs:
   artsdata-fetch-and-push:
     runs-on: ubuntu-latest
     steps:
-      # NAC publishes one sitemap per language. Read the English event URLs
-      # from the en sitemap and the French event URLs from the fr sitemap.
-      - name: Build en/fr event URL list
-        id: urls
-        run: |
-          all=""
-          for lang in en fr; do
-            urls=$(curl -sSfL --retry 3 -A "Mozilla/5.0 (compatible; ArtsdataBot)" \
-                     "https://nac-cna.ca/$lang/site/sitemap-ssl" \
-                   | grep -oE "https://nac-cna\.ca/$lang/event/[0-9]+" | sort -u)
-            count=$(echo "$urls" | grep -c .)
-            if [ "$count" -eq 0 ]; then
-              echo "No /$lang/event/ URLs found in $lang sitemap" >&2
-              exit 1
-            fi
-            echo "Found $count $lang event URLs"
-            all="$all"$'\n'"$urls"
-          done
-          echo "list=$(echo "$all" | grep . | paste -sd, -)" >> "$GITHUB_OUTPUT"
-
       - name: Action setup
         uses: culturecreates/artsdata-pipeline-action@v4
         with:
@@ -39,7 +19,7 @@ jobs:
           artifact: "nac-events"
           artifact-file: "output/nac-events.jsonld"
           publisher: "${{ secrets.PUBLISHER_URI_GREGORY }}"
-          page-url: "${{ steps.urls.outputs.list }}"
-          urls-are-entities: "true"
+          page-url: "https://nac-cna.ca/en/site/sitemap-ssl, https://nac-cna.ca/fr/site/sitemap-ssl"
+          entity-identifier: loc
           token: "${{ secrets.GITHUB_TOKEN }}"
           cloudflare-private-key: "${{ secrets.CLOUDFLARE_PRIVATE_KEY }}"
