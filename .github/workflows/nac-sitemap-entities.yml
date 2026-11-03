@@ -15,7 +15,7 @@ jobs:
       - name: Action setup
         uses: culturecreates/artsdata-pipeline-action@v4
         with:
-          mode: "fetch-test"
+          mode: "fetch-push"
           artifact: "nac-events"
           artifact-file: "output/nac-events.jsonld"
           publisher: "${{ secrets.PUBLISHER_URI_GREGORY }}"
