@@ -20,6 +20,6 @@ jobs:
           artifact-file: "output/nac-events.jsonld"
           publisher: "${{ secrets.PUBLISHER_URI_GREGORY }}"
           page-url: "https://nac-cna.ca/en/site/sitemap-ssl, https://nac-cna.ca/fr/site/sitemap-ssl"
-          entity-identifier: //loc[contains(., "/event/")]
+          entity-identifier: //xmlns:loc[contains(., "/event/")]
           token: "${{ secrets.GITHUB_TOKEN }}"
           cloudflare-private-key: "${{ secrets.CLOUDFLARE_PRIVATE_KEY }}"
