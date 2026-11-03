@@ -15,11 +15,11 @@ jobs:
       - name: Action setup
         uses: culturecreates/artsdata-pipeline-action@v4
         with:
-          mode: "fetch-push"
+          mode: "fetch-test"
           artifact: "nac-events"
           artifact-file: "output/nac-events.jsonld"
           publisher: "${{ secrets.PUBLISHER_URI_GREGORY }}"
           page-url: "https://nac-cna.ca/en/site/sitemap-ssl, https://nac-cna.ca/fr/site/sitemap-ssl"
-          entity-identifier: loc
+          entity-identifier: //loc[contains(., "/event/")]
           token: "${{ secrets.GITHUB_TOKEN }}"
           cloudflare-private-key: "${{ secrets.CLOUDFLARE_PRIVATE_KEY }}"
